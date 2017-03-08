@@ -149,7 +149,7 @@ public class Controller implements Initializable {
                 for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
                     row.add(rs.getString(i));
                 }
-                rs.close();
+                
                 rates.add(row);
             }
             rateView.setItems(rates);

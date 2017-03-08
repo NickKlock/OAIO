@@ -23,7 +23,7 @@
             <tabs>
                 <Tab text="Full blue">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="495.0" style="-fx-background-image: &quot;hasselhof.jpg&quot;;">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="495.0">
                             <children>
                         <ImageView fitHeight="483.0" fitWidth="725.0" layoutY="11.0">
                            <image>
