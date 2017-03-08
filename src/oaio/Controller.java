@@ -73,7 +73,6 @@ public class Controller implements Initializable {
             pst.setString(1, char1.getText());
             pst.setString(2, plus.getText());
             pst.execute();
-
         }
     }
 
@@ -85,7 +84,6 @@ public class Controller implements Initializable {
             pst = conn.prepareStatement(DELQuery);
             pst.setString(1, char2.getText());
             pst.execute();
-
         }
     }
 
@@ -131,12 +129,12 @@ public class Controller implements Initializable {
     private void handleCHECK(ActionEvent event) throws SQLException, IOException {
         Connection c ;
           rates = FXCollections.observableArrayList();
-          try(Connection conn = Sql.DbConnector();) {
+          try (Connection conn = Sql.DbConnector();) {
 
             String SQL = Files.lines(Paths.get("sql/CHECKRATE.txt")).collect(Collectors.joining("\n"));
             ResultSet rs = conn.createStatement().executeQuery(SQL);
             
-            for(int i=0 ; i < rs.getMetaData().getColumnCount(); i++){
+            for (int i=0 ; i < rs.getMetaData().getColumnCount(); i++){
                 final int j = i;                
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
                 col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList,String>,ObservableValue<String>>(){                    
@@ -146,17 +144,16 @@ public class Controller implements Initializable {
                 });
                 rateView.getColumns().addAll(col); 
             }
-            while(rs.next()){
+            while (rs.next()) {
                 ObservableList<String> row = FXCollections.observableArrayList();
                 for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
                     row.add(rs.getString(i));
                 }
                 rs.close();
                 rates.add(row);
-
             }
             rateView.setItems(rates);
-          }catch(Exception e){
+          } catch (Exception e) {
               e.printStackTrace();
               System.out.println("Error on Building Data");             
           }
