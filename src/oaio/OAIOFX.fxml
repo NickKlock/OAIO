@@ -61,16 +61,6 @@
                             <children>
                                 <TableView fx:id="rateView" layoutX="6.0" layoutY="165.0" prefHeight="324.0" prefWidth="713.0" />
                                 <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleCHECK" prefHeight="142.0" prefWidth="713.0" text="Go!" />
-                        <ImageView fitHeight="141.0" fitWidth="193.0" layoutX="6.0" layoutY="15.0">
-                           <image>
-                              <Image url="@../res/hasselhof.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="139.0" fitWidth="192.0" layoutX="526.0" layoutY="15.0">
-                           <image>
-                              <Image url="@../res/hasselhof.jpg" />
-                           </image>
-                        </ImageView>
                             </children>
                         </AnchorPane>
                     </content>
