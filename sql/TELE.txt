@@ -1,0 +1,9 @@
+USE SRO_VT_SHARD
+
+DECLARE @idfrom int
+DECLARE @idto int
+
+SET @idfrom = (SELECT id FROM _RefTeleport WHERE CodeName128 = ?)
+SET @idto = (SELECT id FROM _RefTeleport WHERE CodeName128 = ?)
+
+INSERT INTO _RefTeleLink  VALUES (1, @idfrom,@idto,?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)

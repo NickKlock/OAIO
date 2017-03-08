@@ -1,0 +1,178 @@
+USE SRO_VT_SHARD 
+
+DECLARE @Charid int 
+DECLARE @ItemID int 
+Declare @Charname VarChar(50) = ?
+Declare @PLUS int = ?
+DECLARE @Head int 
+Declare @CHEST int 
+DECLARE @LEGS int 
+DECLARE @SHOULDER int 
+DECLARE @HAND int 
+DECLARE @FOOT int 
+DECLARE @RING1 int 
+DECLARE @RING2 int 
+DECLARE @NECK int 
+DECLARE @ERRING int 
+DECLARE @WEP int 
+DECLARE @SHIELD int 
+
+
+
+SET @Charid = (select CharID from _Char where CharName16=@Charname) 
+SET @Head = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=0 and CharID=@Charid) 
+SET @CHEST = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=1 and CharID=@Charid) 
+SET @LEGS = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=4 and CharID=@Charid) 
+SET @SHOULDER = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=2 and CharID=@Charid) 
+SET @HAND = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=3 and CharID=@Charid) 
+SET @FOOT = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=5 and CharID=@Charid) 
+SET @RING1 = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=11 and CharID=@Charid) 
+SET @RING2 = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=12 and CharID=@Charid) 
+SET @NECK = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=10 and CharID=@Charid) 
+SET @ERRING = (Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=9 and CharID=@Charid) 
+SET @WEP =(Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=6 and CharID=@Charid) 
+SET @SHIELD =(Select ItemID from SRO_VT_SHARD.dbo._Inventory where Slot=7 and CharID=@Charid) 
+
+update _Items  
+set MagParamNum=6, 
+optlevel=@PLUS, 
+MagParam1 =5583457484950, 
+MagParam2 =5583457484962, 
+MagParam3 =30064771144, 
+MagParam4=858993459290, 
+MagParam5=30064771150, 
+MagParam6=257698037898, 
+Variance=865920825 
+where ID64 =@Head 
+--------------- 
+
+update _Items  
+set MagParamNum=6, 
+optlevel=@PLUS, 
+MagParam1 =5583457484950, 
+MagParam2 =5583457484962, 
+MagParam3 =30064771144, 
+MagParam4=858993459290, 
+MagParam5=30064771150, 
+MagParam6=257698037898, 
+Variance=865920825 
+where ID64 =@CHEST 
+
+---------------------- 
+
+update _Items  
+set MagParamNum=4, 
+optlevel=@PLUS, 
+MagParam1 =30064771150, 
+MagParam2 =30064771144, 
+MagParam3 =858993459290, 
+MagParam4=257698037898, 
+Variance=865920825 
+where ID64 =@SHOULDER 
+
+---------------------- 
+update _Items  
+set MagParamNum=4, 
+optlevel=@PLUS, 
+MagParam1 =30064771150, 
+MagParam2 =30064771144, 
+MagParam3 =858993459290, 
+MagParam4=257698037898, 
+Variance=865920825 
+where ID64 =@HAND 
+
+
+update _Items  
+set MagParamNum=6, 
+optlevel=@PLUS, 
+MagParam1 =5583457484950, 
+MagParam2 =5583457484962, 
+MagParam3 =30064771144, 
+MagParam4=858993459290, 
+MagParam5=30064771150, 
+MagParam6=257698037898, 
+Variance=865920825 
+where ID64 =@LEGS 
+
+----------------------- 
+
+update _Items  
+set MagParamNum=4, 
+optlevel=@PLUS, 
+MagParam1 =30064771150, 
+MagParam2 =30064771144, 
+MagParam3 =858993459290, 
+MagParam4=257698037898, 
+Variance=865920825 
+where ID64 =@FOOT 
+
+update _Items  
+set MagParamNum=6, 
+optlevel=@PLUS, 
+MagParam1 =30064771144, 
+MagParam2 =30064771150, 
+MagParam3 =85899346100, 
+MagParam4 =85899346094, 
+MagParam5 =85899346112, 
+MagParam6 =85899346106, 
+Variance=858 
+where ID64 =@RING1 
+
+
+
+update _Items  
+set MagParamNum=6, 
+optlevel=@PLUS, 
+MagParam1 =30064771144, 
+MagParam2 =30064771150, 
+MagParam3 =85899346100, 
+MagParam4 =85899346094, 
+MagParam5 =85899346112, 
+MagParam6 =85899346106, 
+Variance=858 
+where ID64 =@RING2 
+
+update _Items  
+set MagParamNum=6, 
+optlevel=@PLUS, 
+MagParam1 =30064771144, 
+MagParam2 =30064771150, 
+MagParam3 =85899346100, 
+MagParam4 =85899346094, 
+MagParam5 =85899346112, 
+MagParam6 =85899346106, 
+Variance=858 
+where ID64 =@NECK 
+
+
+update _Items  
+set MagParamNum=6, 
+optlevel=@PLUS, 
+MagParam1 =30064771144, 
+MagParam2 =30064771150, 
+MagParam3 =85899346100, 
+MagParam4 =85899346094, 
+MagParam5 =85899346112, 
+MagParam6 =85899346106, 
+Variance=858 
+where ID64 =@ERRING 
+
+update _Items  
+set MagParamNum=4, 
+optlevel=@PLUS, 
+MagParam1 =30064771150, 
+MagParam2 =30064771144, 
+MagParam3 =858993459290, 
+MagParam4 =257698037862, 
+Variance=28817845082 
+where ID64 =@WEP 
+
+
+update _Items  
+set MagParamNum=3, 
+optlevel=@PLUS, 
+MagParam1 =30064771150, 
+MagParam2 =30064771144, 
+MagParam3 =858993459290, 
+Variance=900557658 
+where ID64 =@SHIELD 

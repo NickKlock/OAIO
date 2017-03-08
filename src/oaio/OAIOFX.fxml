@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="390.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oaio.Controller">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+        <TabPane prefHeight="522.0" prefWidth="725.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Full blue">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="322.0" prefWidth="495.0">
+                            <children>
+                                <Button layoutX="336.0" layoutY="263.0" mnemonicParsing="false" onAction="#handleFB" text="Submit" />
+                                <TextField fx:id="char1" layoutX="288.0" layoutY="181.0" />
+                                <TextField fx:id="plus" layoutX="288.0" layoutY="222.0" />
+                                <Label layoutX="258.0" layoutY="226.0" text="Plus:" />
+                                <Label layoutX="223.0" layoutY="185.0" text="Char name:" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Delete char">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="char2" layoutX="288.0" layoutY="213.0" />
+                                <Label layoutX="219.0" layoutY="217.0" text="Char name:" />
+                                <Button layoutX="336.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleDEL" text="Delete!" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Alchemy rate checker">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="rateView" layoutX="6.0" layoutY="165.0" prefHeight="324.0" prefWidth="713.0" />
+                                <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleCHECK" prefHeight="142.0" prefWidth="713.0" text="Go!" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Teleporter linking">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ComboBox fx:id="from" layoutX="274.0" layoutY="175.0" prefWidth="150.0" />
+                                <ComboBox fx:id="to" layoutX="274.0" layoutY="211.0" prefWidth="150.0" />
+                                <Button layoutX="323.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleTELE" text="Create!" />
+                                <TextField fx:id="fee" layoutX="275.0" layoutY="247.0" />
+                                <Label layoutX="232.0" layoutY="179.0" text="From:" />
+                                <Label layoutX="247.0" layoutY="215.0" text="To:" />
+                                <Label layoutX="196.0" layoutY="251.0" text="Teleport cost:" />
+                                <Button layoutX="274.0" layoutY="91.0" mnemonicParsing="false" onAction="#TELERefresh" prefHeight="25.0" prefWidth="151.0" text="Refresh teleporters" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            <Tab text="Teleport/unstuck char">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="chartele" layoutX="288.0" layoutY="195.0" />
+                        <Button layoutX="323.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleSTUCK" text="For Mick &lt;3" />
+                        <Label layoutX="218.0" layoutY="199.0" text="Char name:" />
+                        <Label layoutX="349.0" layoutY="287.0" fx:id="stucklabel"/>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
