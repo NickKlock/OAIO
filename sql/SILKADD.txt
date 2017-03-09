@@ -1,0 +1,13 @@
+USE SRO_VT_ACCOUNT
+
+DECLARE @jid int
+
+SET @jid = (SELECT JID FROM TB_User WHERE StrUserID = ?)
+
+
+IF EXISTS (SELECT JID FROM SK_Silk WHERE JID = @jid)
+	UPDATE SK_SILK SET silk_own += ? WHERE JID = @jid
+
+ELSE
+	INSERT INTO SK_Silk VALUES (@jid,?,0,0)
+
