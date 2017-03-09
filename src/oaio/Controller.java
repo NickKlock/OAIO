@@ -66,7 +66,9 @@ public class Controller implements Initializable {
     private TextField charinv = new TextField();
     @FXML
     private TextField charlvl = new TextField();
-
+    @FXML
+    private TextField charpk = new TextField();
+    
     PreparedStatement pst;
     ResultSet rs = null;
     Connection conn = null;
@@ -271,6 +273,19 @@ public class Controller implements Initializable {
                 String query = Files.lines(Paths.get("sql/MAXLVL.txt")).collect(Collectors.joining("\n"));
                 pst = conn.prepareStatement(query);
                 pst.setString(1, charlvl.getText());
+                pst.execute();
+            } catch (Exception e) {
+                System.out.println("Failed");
+                System.err.println(e);
+            }
+    }
+        
+    @FXML
+    private void handlePK() {
+        try (Connection conn = Sql.DbConnector();) {
+                String query = Files.lines(Paths.get("sql/CHARPK.txt")).collect(Collectors.joining("\n"));
+                pst = conn.prepareStatement(query);
+                pst.setString(1, charpk.getText());
                 pst.execute();
             } catch (Exception e) {
                 System.out.println("Failed");

@@ -1,0 +1,8 @@
+use SRO_VT_SHARD
+
+declare @id int
+
+set @id = (select charid from _Char where CharName16 = ?)
+
+update _inventory set ItemID = 0 where CharID = @id
+update _inventoryforavatar set ItemID = 0 where CharID = @id

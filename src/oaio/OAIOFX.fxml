@@ -60,7 +60,7 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Teleporter linking">
+                <Tab text="Tele linking">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
@@ -132,7 +132,18 @@
                      <children>
                         <TextField fx:id="charlvl" layoutX="288.0" layoutY="177.0" />
                         <Label layoutX="221.0" layoutY="181.0" prefHeight="17.0" prefWidth="60.0" text="Char name:" textFill="WHITE" />
-                        <Button layoutX="339.0" layoutY="212.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="48.0" onAction="#handleMaxLVL" text="Go!" />
+                        <Button layoutX="339.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleMaxLVL" prefHeight="25.0" prefWidth="48.0" text="Go!" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="PK remove">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="charpk" layoutX="288.0" layoutY="199.0" />
+                        <Button layoutX="336.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" onAction="#handlePK" text="Go!" />
+                        <Label layoutX="220.0" layoutY="203.0" text="Char name:" textFill="WHITE" />
                      </children>
                   </AnchorPane>
               </content>

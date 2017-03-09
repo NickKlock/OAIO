@@ -1,0 +1,4 @@
+USE SRO_VT_SHARD
+
+UPDATE _Char SET CurLevel = 100, MaxLevel = 100, Strength = 119, Intellect = 119, RemainStatPoint = 297
+WHERE CharName16 = ?
