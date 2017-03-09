@@ -1,0 +1,9 @@
+USE SRO_VT_SHARD
+
+declare @CharID int
+
+set @CharID = (SELECT CharID FROM _Char WHERE CharName16 = ?)
+
+Update _Char Set DailyPK = 0 Where CharID = @CharID 
+Update _Char Set TotalPK = 0 Where CharID = @CharID 
+Update _Char Set PKPenaltyPoint = 0 Where CharID = @CharID
