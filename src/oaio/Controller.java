@@ -58,6 +58,10 @@ public class Controller implements Initializable {
     private Label stucklabel = new Label();
     @FXML
     private TextField skchar = new TextField();
+    @FXML
+    private TextField silkacc = new TextField();
+    @FXML
+    private TextField silkamount = new TextField();
 
     PreparedStatement pst;
     ResultSet rs = null;
@@ -222,6 +226,20 @@ public class Controller implements Initializable {
                 String query = Files.lines(Paths.get("sql/GMSKILL.txt")).collect(Collectors.joining("\n"));
                 pst = conn.prepareStatement(query);
                 pst.setString(1, skchar.getText());
+                pst.execute();
+            } catch (Exception e) {
+                System.out.println("Failed");
+                System.err.println(e);
+            }
+    }
+    
+    @FXML
+    private void handleSILKS() {
+        try (Connection conn = Sql.DbConnector();) {
+                String query = "USE SRO_VT_ACCOUNT UPDATE SK_SILK SET silk_own += ? WHERE JID = (SELECT JID FROM TB_User WHERE StrUserID = ?)";
+                pst = conn.prepareStatement(query);
+                pst.setString(1, silkamount.getText());
+                pst.setString(2, silkacc.getText());
                 pst.execute();
             } catch (Exception e) {
                 System.out.println("Failed");
