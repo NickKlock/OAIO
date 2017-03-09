@@ -91,12 +91,12 @@ public class Controller implements Initializable {
     private void handleTELE(ActionEvent event) throws SQLException, IOException {
         try (Connection conn = Sql.DbConnector();) {
 
-            String TELEQuery = Files.lines(Paths.get("sql/TELE.txt")).collect(Collectors.joining("\n"));
-            pst = conn.prepareStatement(TELEQuery);
-            pst.setString(1, (String) from.getSelectionModel().getSelectedItem());
-            pst.setString(2, (String) to.getSelectionModel().getSelectedItem());
-            pst.setString(3, fee.getText());
-            pst.execute();
+//            String TELEQuery = Files.lines(Paths.get("sql/TELE.txt")).collect(Collectors.joining("\n"));
+//            pst = conn.prepareStatement(TELEQuery);
+//            pst.setString(1, (String) from.getSelectionModel().getSelectedItem());
+//            pst.setString(2, (String) to.getSelectionModel().getSelectedItem());
+//            pst.setString(3, fee.getText());
+//            pst.execute();
             
             String MakeTXT = "USE SRO_VT_SHARD Select * from _RefTeleLink";
             Statement stm = conn.createStatement();
@@ -109,7 +109,10 @@ public class Controller implements Initializable {
             while (rs.next()) {
                 row.setLength(0);
                 for (int c = 1; c <= colCount; c++) {
-                    row.append(rs.getString(c)).append("\t");
+                        row.append(rs.getString(c)).append("\t");
+                        if (c == colCount) {
+                            row.append(rs.getString(c)).append("");
+                        }
                 }
                 rows.add(row.toString());
             }
