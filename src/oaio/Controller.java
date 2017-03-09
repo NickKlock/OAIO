@@ -62,6 +62,10 @@ public class Controller implements Initializable {
     private TextField silkacc = new TextField();
     @FXML
     private TextField silkamount = new TextField();
+    @FXML
+    private TextField charinv = new TextField();
+    @FXML
+    private TextField charlvl = new TextField();
 
     PreparedStatement pst;
     ResultSet rs = null;
@@ -247,7 +251,34 @@ public class Controller implements Initializable {
                 System.err.println(e);
             }
     }
+    
+    @FXML
+    private void handleINV() {
+        try (Connection conn = Sql.DbConnector();) {
+                String query = Files.lines(Paths.get("sql/INVCLEAN.txt")).collect(Collectors.joining("\n"));
+                pst = conn.prepareStatement(query);
+                pst.setString(1, charinv.getText());
+                pst.execute();
+            } catch (Exception e) {
+                System.out.println("Failed");
+                System.err.println(e);
+            }
+    }
+    
+    @FXML
+    private void handleMaxLVL() {
+        try (Connection conn = Sql.DbConnector();) {
+                String query = Files.lines(Paths.get("sql/MAXLVL.txt")).collect(Collectors.joining("\n"));
+                pst = conn.prepareStatement(query);
+                pst.setString(1, charlvl.getText());
+                pst.execute();
+            } catch (Exception e) {
+                System.out.println("Failed");
+                System.err.println(e);
+            }
+    }
 
+    
     
     public void initialize(URL location, ResourceBundle resources) {
         
