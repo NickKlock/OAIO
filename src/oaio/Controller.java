@@ -91,12 +91,12 @@ public class Controller implements Initializable {
     private void handleTELE(ActionEvent event) throws SQLException, IOException {
         try (Connection conn = Sql.DbConnector();) {
 
-//            String TELEQuery = Files.lines(Paths.get("sql/TELE.txt")).collect(Collectors.joining("\n"));
-//            pst = conn.prepareStatement(TELEQuery);
-//            pst.setString(1, (String) from.getSelectionModel().getSelectedItem());
-//            pst.setString(2, (String) to.getSelectionModel().getSelectedItem());
-//            pst.setString(3, fee.getText());
-//            pst.execute();
+            String TELEQuery = Files.lines(Paths.get("sql/TELE.txt")).collect(Collectors.joining("\n"));
+            pst = conn.prepareStatement(TELEQuery);
+            pst.setString(1, (String) from.getSelectionModel().getSelectedItem());
+            pst.setString(2, (String) to.getSelectionModel().getSelectedItem());
+            pst.setString(3, fee.getText());
+            pst.execute();
             
             String MakeTXT = "USE SRO_VT_SHARD Select * from _RefTeleLink";
             Statement stm = conn.createStatement();
@@ -120,10 +120,12 @@ public class Controller implements Initializable {
             stm.close();
 
             PrintWriter pw = new PrintWriter(new FileOutputStream("teleportlink.txt"));
+            StringBuilder all = new StringBuilder();
             for (String str : rows) {
-                pw.println(str);
+                all.append(str+"\n");
             }
-            pw.print("//END OF FILE COMPLETELY REMOVE THIS LINE!!!");
+            
+            pw.print(all);
             pw.close();
         }
     }
