@@ -1,0 +1,21 @@
+use SRO_VT_SHARD
+
+declare @id int
+declare @charname varchar(64)
+
+set @charname = ?
+set @id = (SELECT CharID FROM _Char WHERE CharName16 = @charname)
+
+insert into _charskill values(@id, 33788, 1)
+insert into _charskill values(@id, 33789, 1)
+insert into _charskill values(@id, 33790, 1)
+insert into _charskill values(@id, 33791, 1)
+insert into _charskill values(@id, 33792, 1)
+insert into _charskill values(@id, 33793, 1)
+insert into _charskill values(@id, 33794, 1)
+insert into _charskill values(@id, 33795, 1)
+insert into _charskill values(@id, 33796, 1)
+insert into _charskill values(@id, 33797, 1)
+insert into _charskill values(@id, 33798, 1)
+insert into _charskill values(@id, 33799, 1)
+insert into _charskillmastery values(@id, 289, 140)

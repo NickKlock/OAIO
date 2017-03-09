@@ -56,6 +56,8 @@ public class Controller implements Initializable {
     private TextField chartele = new TextField();
     @FXML
     private Label stucklabel = new Label();
+    @FXML
+    private TextField skchar = new TextField();
 
     PreparedStatement pst;
     ResultSet rs = null;
@@ -97,7 +99,7 @@ public class Controller implements Initializable {
             pst.setString(2, (String) to.getSelectionModel().getSelectedItem());
             pst.setString(3, fee.getText());
             pst.execute();
-            
+
             String MakeTXT = "USE SRO_VT_SHARD Select * from _RefTeleLink";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(MakeTXT);
@@ -109,10 +111,10 @@ public class Controller implements Initializable {
             while (rs.next()) {
                 row.setLength(0);
                 for (int c = 1; c <= colCount; c++) {
-                        row.append(rs.getString(c)).append("\t");
-                        if (c == colCount) {
-                            row.append(rs.getString(c)).append("");
-                        }
+                    row.append(rs.getString(c)).append("\t");
+                    if (c == colCount) {
+                        row.append(rs.getString(c)).append("");
+                    }
                 }
                 rows.add(row.toString());
             }
@@ -122,48 +124,48 @@ public class Controller implements Initializable {
             PrintWriter pw = new PrintWriter(new FileOutputStream("teleportlink.txt"));
             StringBuilder all = new StringBuilder();
             for (String str : rows) {
-                all.append(str+"\n");
+                all.append(str + "\n");
             }
-            
+
             pw.print(all);
             pw.close();
         }
     }
-    
+
     @FXML
     private void handleCHECK(ActionEvent event) throws SQLException, IOException {
-        Connection c ;
-          rates = FXCollections.observableArrayList();
-          try (Connection conn = Sql.DbConnector();) {
+        Connection c;
+        rates = FXCollections.observableArrayList();
+        try (Connection conn = Sql.DbConnector();) {
 
             String SQL = Files.lines(Paths.get("sql/CHECKRATE.txt")).collect(Collectors.joining("\n"));
             ResultSet rs = conn.createStatement().executeQuery(SQL);
-            
-            for (int i=0 ; i < rs.getMetaData().getColumnCount(); i++){
-                final int j = i;                
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
-                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList,String>,ObservableValue<String>>(){                    
-                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {                                                                                              
-                        return new SimpleStringProperty(param.getValue().get(j).toString());                        
-                    }                    
+
+            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                final int j = i;
+                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    }
                 });
-                rateView.getColumns().addAll(col); 
+                rateView.getColumns().addAll(col);
             }
             while (rs.next()) {
                 ObservableList<String> row = FXCollections.observableArrayList();
-                for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
                     row.add(rs.getString(i));
                 }
-                
+
                 rates.add(row);
             }
             rateView.setItems(rates);
-          } catch (Exception e) {
-              e.printStackTrace();
-              System.out.println("Error on Building Data");             
-          }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
     }
-    
+
     @FXML
     private void TELERefresh(ActionEvent event) throws SQLException, IOException {
         try (Connection conn = Sql.DbConnector();) {
@@ -182,7 +184,7 @@ public class Controller implements Initializable {
             rs.close();
         }
     }
-    
+
     @FXML
     private void handleSTUCK(ActionEvent event) throws IOException {
         try (Connection conn = Sql.DbConnector();) {
@@ -199,9 +201,38 @@ public class Controller implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
+    @FXML
+    private void handleSkillsUPDATE() {
+        
+            try (Connection conn = Sql.DbConnector();) {
+                String query = Files.lines(Paths.get("sql/SKILLUPDATE.txt")).collect(Collectors.joining("\n"));
+                pst = conn.prepareStatement(query);
+                pst.setString(1, skchar.getText());
+                pst.execute();
+            } catch (Exception e) {
+                System.out.println("Failed");
+                System.err.println(e);
+            }
     }
+    
+    @FXML
+    private void handleSkillsGM() {
+            
+            try (Connection conn = Sql.DbConnector();) {
+                String query = Files.lines(Paths.get("sql/GMSKILL.txt")).collect(Collectors.joining("\n"));
+                pst = conn.prepareStatement(query);
+                pst.setString(1, skchar.getText());
+                pst.execute();
+            } catch (Exception e) {
+                System.out.println("Failed");
+                System.err.println(e);
+            }
+    }
+
+    
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
+
 
 }
