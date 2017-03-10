@@ -1,0 +1,26 @@
+1	GMAreaKill	SKILL_GM_AREAKILL	0	FALSE	0	DEFAULT	none	none	ANI_SKILL_1	none	none	none	none	none	0	255,255,255,255	ONE	none	none	none	none	LIGHT_1	none	none	0	0	
+1	GMSpeed	SKILL_GM_SPEED	0	FALSE	0	DEFAULT	none	none	none	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	none	none	none	0	1	
+1	GMTeleport	SKILL_GM_TELEPORT	0	FALSE	0	DEFAULT	none	ANI_SKILL_7	none	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	none	none	none	0	1	
+1	GMSingleKill	SKILL_GM_SINGLEKILL	0	FALSE	0	DEFAULT	none	none	ANI_SKILL_1	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	LIGHT_5	none	none	1	0	
+1	GMDisguise	SKILL_GM_DISGUISE	0	FALSE	0	DEFAULT	none	none	none	none	none	none	hiteffect\hit_4_illusion.efp	none	0	0,0,0,0	ONE	none	none	none	none	LIGHT_7	none	none	0	1	
+1	GMConfuse	SKILL_GM_CONFUSE	0	FALSE	0	none	none	none	ANI_SKILL_1	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	LIGHT_9	none	none	0	1	
+1	GMStunt	SKILL_GM_STUNT	0	FALSE	0	DEFAULT	none	none	ANI_SKILL_1	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	LIGHT_1	none	none	1	0	
+1	GMPotionBlock	SKILL_GM_POTIONBLOCK	0	FALSE	0	DEFAULT	none	none	ANI_SKILL_1	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	LIGHT_11	none	none	1	0	
+1	GMBomb	SKILL_GM_BOMB	0	FALSE	0	DEFAULT	none	none	ANI_SKILL_1	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	LIGHT_3	none	none	1	0	
+1	GMResurrect	SKILL_GM_RESURRECT	0	FALSE	1	DEFAULT	none	none	ANI_SKILL_5	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	none	none	none	0	1	
+1	GMCure	SKILL_GM_CURE	0	FALSE	1	DEFAULT	none	none	ANI_SKILL_5	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	none	none	none	0	1	
+1	GMTag	SKILL_GM_TAG	0	FALSE	0	DEFAULT	none	none	ANI_SKILL_1	none	none	none	none	none	0	0,0,0,0	ONE	none	none	none	none	LIGHT_1	none	none	1	0	
+
+GMAreaKill	SKILL_GM_AREAKILL	SHOT	1	TRUE	none	none	0	0	0	0	1	0,0	AT_ONE_FOLLOW	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	skill\gm\	gm_areakill.efp	none	0,0,0	none	0,0,0	none	0	none	common\explode_bomb3.wav	none
+GMSpeed	SKILL_GM_SPEED	ACT_S	0	FALSE	none	none	0	0	0	0	1	0,0	AT_ONE_FOLLOW	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	skill\gm\	gm_speed.efp	none	0,0,0	none	0,0,0	none	0	none	common\fire_ready.wav	none	
+-	SKILL_GM_SPEED	ACT_L	0	FALSE	none	none	0	0	0	0	1	0,0	AT_LOOP	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	skill\gm\	gm_speed.efp	none	0,0,0	none	0,0,0	none	0	none	none	none	
+GMTeleport	SKILL_GM_TELEPORT	READY	0	FALSE	none	none	0	0	0	0	1	0,0	AT_ONE_FOLLOW	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	none	none	none	0,0,0	none	0,0,0	none	0	none	skill\csk_bow_scan.wav	none	
+-	SKILL_GM_TELEPORT	WAIT	0	FALSE	none	none	0	0	0	0	1	0,0	AT_LOOP	MOV_NONE,0,0,0	0,0,0	true,0,0,10,1000,false	skill\gm\	gm_teleport.efp	none	0,0,0	none	0,0,0	none	0	none	none	none	
+GMSingleKill	SKILL_GM_SINGLEKILL	SHOT	1	TRUE	NOR|CRI|HWAN	none	0	0	0	0	1	0,0	AT_TARGET_F	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	skill\gm\	gm_singlekill.efp	none	0,0,0	none	0,10,0	none	0	none	pet2\pet_bear_a_attack7_1.wav	none	
+GMConfuse	SKILL_GM_CONFUSE	SHOT	1	FALSE	NOR|CRI|HWAN	none	0	0	0	0	1	0,0	AT_ONE_FOLLOW	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	none	none	none	0,0,0	none	0,0,0	none	0	none	avatar\avatar_nasrun1_skill2_shot1.wav	none	
+GMStunt	SKILL_GM_STUNT	SHOT	1	FALSE	NOR|CRI|HWAN	none	0	0	0	0	1	0,0	AT_ONE_FOLLOW	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	none	none	none	0,0,0	none	0,0,0	none	0	none	avatar\avatar_nasrun1_skill2_shot1.wav	none	
+GMPotionBlock	SKILL_GM_POTIONBLOCK	SHOT	1	FALSE	NOR|CRI|HWAN	none	0	0	0	0	1	0,0	AT_ONE_FOLLOW	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	none	none	none	0,0,0	none	0,0,0	none	0	none	avatar\avatar_nasrun1_skill2_shot1.wav	none	
+GMBomb	SKILL_GM_BOMB	SHOT	1	TRUE	NOR|CRI|HWAN	CHAR_BASE	0	0	0	0	1	0,0	AT_TARGET_F	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	skill\europe\	warlock_blood_trap_hit_a.efp	none	0,0,0	*	0,5,0	none	0	none	skill2\usk_warlock_blood_explosion_bomb.wav	none	
+-	SKILL_GM_BOMB	S_RETURN	0	FALSE	NOR|CRI|HWAN	CHAR_BASE	0	0	0	0	1	0,0	AT_SOURCE	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	skill\europe\	warlock_blood_trap_bomb_a.efp	none	0,0,0	none	0,10,0	none	0	SCT_SHAKECAM1	skill2\usk_warlock_blood_explosion_a.wav	none	
+GMResurrect	SKILL_GM_RESURRECT	SHOT	0	FALSE	NOR|CRI|HWAN	none	0	0	0	0	8	0,0	AT_TARGET_F	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	skill\gm\	gm_resurrect.efp	none	0,0,0	none	0,0,0	none	0	none	skill\csk_heal_nega.wav	none	
+GMCure	SKILL_GM_CURE	ACT_S	0	FALSE	none	none	0	0	0	0	1	0,0	AT_ONE_FOLLOW	MOV_NONE,0,0,0	0,0,0	false,0,0,0,0,false	skill\gm\	gm_cure.efp	Bip01	0,0,0	none	0,0,0	none	0	none	tq_mob\qinshitrap_ac1.wav	none	

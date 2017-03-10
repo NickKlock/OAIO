@@ -1,0 +1,4 @@
+1	GM	289	GMSkills	0	GM_ROW1	skillgroup\china\pack_water_selfheal.ddj
+1	GM	289	GMSkills	1	GM_ROW2	skillgroup\china\pack_water_selfheal.ddj
+1	GM	289	GMSkills	2	GM_ROW3	skillgroup\china\pack_water_selfheal.ddj
+1	GM	289	GMSkills	3	GM_ROW4	skillgroup\china\pack_water_selfheal.ddj

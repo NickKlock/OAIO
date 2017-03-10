@@ -1,0 +1,30 @@
+//GM Series
+1	GM_ROW1								Killing skills
+1	GM_ROW2								Buffing skills
+1	GM_ROW3								Cursing skills
+1	GM_ROW4								Other skills
+//GM Skills
+1	SN_SKILL_GM_SINGLEKILL								Single Kill
+1	SN_SKILL_GM_SINGLEKILL_TT_DESC								Kill a single character or monster. Only available for GameMasters.
+1	SN_SKILL_GM_AREAKILL								Area kill
+1	SN_SKILL_GM_AREAKILL_TT_DESC								Kill many characters and/or monsters around you. Only available for GameMasters.
+1	SN_SKILL_GM_SPEED								GM Speed
+1	SN_SKILL_GM_SPEED_TT_DESC								Increase your character speed. Only available for GameMasters.
+1	SN_SKILL_GM_TELEPORT								GM Teleport
+1	SN_SKILL_GM_TELEPORT_TT_DESC								Teleport your character to a near location. Only available for GameMasters.
+1	SN_SKILL_GM_DISGUISE								GM Disguise
+1	SN_SKILL_GM_DISGUISE_TT_DESC								Randomly changes your appareance into any other character. Only available for GameMasters.
+1	SN_SKILL_GM_CONFUSE								GM Confusion
+1	SN_SKILL_GM_CONFUSE_TT_DESC								Make a monster friendly, attacking other monsters around. Only available for GameMasters.
+1	SN_SKILL_GM_STUNT								GM Stun
+1	SN_SKILL_GM_STUNT_TT_DESC								Stun a single character or a monster. Only available for GameMasters.
+1	SN_SKILL_GM_POTIONBLOCK								GM Potion Restriction
+1	SN_SKILL_GM_POTIONBLOCK_TT_DESC								Adds 5 seconds cooldown on the selected target when using HP/MP potions and reduce the target's max HP to 1% and remove all of his MP. Only available for GameMasters.
+1	SN_SKILL_GM_BOMB								GM Bomb
+1	SN_SKILL_GM_BOMB_TT_DESC								Plants a trap on the target that explodes randomly after 10 seconds, killing the target. Only available for GameMasters.
+1	SN_SKILL_GM_RESURRECT								GM Resurrection
+1	SN_SKILL_GM_RESURRECT_TT_DESC								Resurrect a dead player giving back the 100% of the lost exp, HP and MP. Only available for GameMasters.
+1	SN_SKILL_GM_CURE								GM Cure
+1	SN_SKILL_GM_CURE_TT_DESC								Cure all the abnormal status from the selected target. Only available for GameMasters.
+1	SN_SKILL_GM_TAG								GM Eye
+1	SN_SKILL_GM_TAG_TT_DESC								Shows the location of any player or monster you use it on on the map. Effect is gone after teleport. Only available for GameMasters.
