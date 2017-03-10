@@ -1,5 +1,6 @@
 Configure your DB settings in config.ini before you use this.
 
+Run with Run.bat, to debug errors.
 
 
 Full blue:
