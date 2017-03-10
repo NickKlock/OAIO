@@ -1,5 +1,0 @@
-USE SRO_VT_SHARD
-DECLARE @intReturnValue int
-
-EXEC @intReturnValue = _UPDATE_CHARSKILLS ?
-SELECT @intReturnValue AS ReturnValue

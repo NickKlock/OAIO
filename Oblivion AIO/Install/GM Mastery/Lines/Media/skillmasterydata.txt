@@ -1,1 +1,0 @@
-289	GM	UIIT_STT_MASTERY_GM	4	UIIT_STT_MASTERY_GM_EXPLANATION	UIIT_STT_MASTERY_GM	2	2	0	0	0	icon\skillmastery\china\mastery_water.ddj	icon\skillmastery\china\mastery_water_focus.ddj
