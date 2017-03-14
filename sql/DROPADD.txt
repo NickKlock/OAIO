@@ -1,0 +1,48 @@
+USE SRO_VT_SHARD
+
+DECLARE @MonsterID int 
+DECLARE @ItemID int 
+DECLARE @DropRatio real
+DECLARE @DropAmountMin int 
+DECLARE @DropAmountMax int
+
+
+SET @MonsterID = (select ID from _RefObjCommon where CodeName128 like ?)    -------- Mob,Unique ID you want Add Drop in 
+SET @ItemID = (select ID from _RefObjCommon where CodeName128 like ?)-------- ITEM name You want Add in Drops 
+SET @DropRatio = ?        -------- Item drop rate 1=100% , 0.3 = 30%
+SET @DropAmountMin = ?    -------- Amount of this item to Drop min
+SET @DropAmountMax = ?    -------- Amount of this item to Drop max
+
+
+
+INSERT _RefMonster_AssignedItemDrop
+( 
+RefMonsterID, 
+RefItemID, 
+DropGroupType, 
+OptLevel, 
+DropAmountMin, 
+DropAmountMax, 
+DropRatio, 
+RefMagicOptionID1, 
+CustomValue1, 
+RefMagicOptionID2, 
+CustomValue2, 
+RefMagicOptionID3, 
+CustomValue3, 
+RefMagicOptionID4, 
+CustomValue4, 
+RefMagicOptionID5, 
+CustomValue5, 
+RefMagicOptionID6, 
+CustomValue6, 
+RefMagicOptionID7, 
+CustomValue7, 
+RefMagicOptionID8, 
+CustomValue8, 
+RefMagicOptionID9, 
+CustomValue9, 
+RentCodeName 
+)
+VALUES(@MonsterID , @ItemID, 0, 0, @DropAmountMin, @DropAmountMax, @DropRatio, 0, 0, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 0, 0, 0, 0, 0 , 0 , 'xxx')

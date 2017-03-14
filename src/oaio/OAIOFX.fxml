@@ -16,15 +16,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="390.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oaio.Controller">
+<AnchorPane id="AnchorPane" prefHeight="522.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oaio.Controller">
     <children>
-      <ImageView fitHeight="483.0" fitWidth="725.0" layoutX="10.0" layoutY="25.0">
+      <ImageView fitHeight="483.0" fitWidth="765.0" layoutX="10.0" layoutY="25.0">
          <image>
             <Image url="@../res/hasselhof.jpg" />
          </image>
       </ImageView>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-        <TabPane prefHeight="522.0" prefWidth="725.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane prefHeight="522.0" prefWidth="781.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab text="Full blue">
                     <content>
@@ -54,8 +54,8 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="rateView" layoutX="6.0" layoutY="165.0" prefHeight="324.0" prefWidth="713.0" />
-                                <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleCHECK" prefHeight="142.0" prefWidth="713.0" text="Go!" />
+                                <TableView fx:id="rateView" layoutX="34.0" layoutY="162.0" prefHeight="324.0" prefWidth="713.0" />
+                                <Button layoutX="34.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleCHECK" prefHeight="142.0" prefWidth="713.0" text="Go!" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -142,8 +142,27 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="charpk" layoutX="288.0" layoutY="199.0" />
-                        <Button layoutX="336.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" onAction="#handlePK" text="Go!" />
+                        <Button layoutX="336.0" layoutY="234.0" mnemonicParsing="false" onAction="#handlePK" prefHeight="25.0" prefWidth="53.0" text="Go!" />
                         <Label layoutX="220.0" layoutY="203.0" text="Char name:" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Drops">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="dmob" layoutX="316.0" layoutY="132.0" prefHeight="25.0" prefWidth="221.0" promptText="ex. MOB_RM_ROC" />
+                        <TextField fx:id="ditem" layoutX="316.0" layoutY="172.0" prefHeight="25.0" prefWidth="222.0" promptText="ex. ITEM_MALL_GLOBAL_CHATTING" />
+                        <TextField fx:id="dratio" layoutX="316.0" layoutY="211.0" prefHeight="25.0" prefWidth="221.0" promptText="1 = 100%, 0.5 = 50% etc." />
+                        <TextField fx:id="dmin" layoutX="316.0" layoutY="247.0" prefHeight="25.0" prefWidth="221.0" promptText="Minimum amount to drop" />
+                        <TextField fx:id="dmax" layoutX="316.0" layoutY="284.0" prefHeight="25.0" prefWidth="220.0" promptText="Maximum amount to drop" />
+                        <Button layoutX="352.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleDROPS" prefHeight="25.0" prefWidth="138.0" text="Add" />
+                        <Label layoutX="274.0" layoutY="136.0" prefHeight="17.0" prefWidth="29.0" text="Mob:" textFill="WHITE" />
+                        <Label layoutX="274.0" layoutY="176.0" prefHeight="17.0" prefWidth="29.0" text="Item:" textFill="WHITE" />
+                        <Label layoutX="245.0" layoutY="215.0" prefHeight="17.0" prefWidth="58.0" text="Drop ratio:" textFill="WHITE" />
+                        <Label layoutX="248.0" layoutY="251.0" prefHeight="17.0" prefWidth="55.0" text="Min drop:" textFill="WHITE" />
+                        <Label layoutX="249.0" layoutY="288.0" prefHeight="17.0" prefWidth="54.0" text="Max drop:" textFill="WHITE" />
                      </children>
                   </AnchorPane>
               </content>

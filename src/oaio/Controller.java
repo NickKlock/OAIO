@@ -68,6 +68,17 @@ public class Controller implements Initializable {
     private TextField charlvl = new TextField();
     @FXML
     private TextField charpk = new TextField();
+    @FXML
+    private TextField dmob = new TextField();
+    @FXML
+    private TextField ditem = new TextField();
+    @FXML
+    private TextField dratio = new TextField();
+    @FXML
+    private TextField dmin = new TextField();
+    @FXML
+    private TextField dmax = new TextField();
+    
     
     PreparedStatement pst;
     ResultSet rs = null;
@@ -286,6 +297,24 @@ public class Controller implements Initializable {
                 String query = Files.lines(Paths.get("sql/CHARPK.txt")).collect(Collectors.joining("\n"));
                 pst = conn.prepareStatement(query);
                 pst.setString(1, charpk.getText());
+                pst.execute();
+            } catch (Exception e) {
+                System.out.println("Failed");
+                System.err.println(e);
+            }
+    }
+    
+    @FXML
+    private void handleDROPS() {
+        try (Connection conn = Sql.DbConnector();) {
+                String query = Files.lines(Paths.get("sql/DROPADD.txt")).collect(Collectors.joining("\n"));
+                pst = conn.prepareStatement(query);
+                
+                pst.setString(1, dmob.getText());
+                pst.setString(2, ditem.getText());
+                pst.setString(3, dratio.getText());
+                pst.setString(4, dmin.getText());
+                pst.setString(5, dmax.getText());
                 pst.execute();
             } catch (Exception e) {
                 System.out.println("Failed");
