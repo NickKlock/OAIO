@@ -111,7 +111,7 @@ public class Controller implements Initializable {
             pst.setString (3, fee.getText ( ));
 
             String MakeTXT = "USE SRO_R_SHARD Select * from _RefTeleLink";
-            
+
             Statement stm = conn.createStatement ( );
             ResultSet rs = stm.executeQuery (MakeTXT);
             List<String> rows = new ArrayList<> ( );
@@ -153,13 +153,11 @@ public class Controller implements Initializable {
 
     @FXML
     private void handleNPC_MOVE(ActionEvent event) throws SQLException, IOException {
-        System.out.println (npc_move.getSelectionModel ().getSelectedItem ().toString () );
         try (Connection conn = Sql.DbConnector()) {
-
             String NPCQuery = Files.lines(Paths.get("sql/NPCMOVE.txt")).collect(Collectors.joining("\n"));
             pst = conn.prepareStatement(NPCQuery);
-            pst.setString(1, npc_move.getSelectionModel().getSelectedItem().toString ());
-            pst.setString(2, charname_move.getText ());
+            pst.setString(1, charname_move.getText ());
+            pst.setString(2, npc_move.getSelectionModel().getSelectedItem().toString ());
             pst.execute();
         }
     }
