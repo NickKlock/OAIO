@@ -102,6 +102,45 @@ public class Controller implements Initializable {
     }
 
     @FXML
+  private void handleTELE(ActionEvent event) throws SQLException, IOException {
+        try (Connection conn = Sql.DbConnector ( )) {
+            String TELEQuery = Files.lines (Paths.get ("sql/TELE.txt")).collect (Collectors.joining ("\n"));
+            pst = conn.prepareStatement (TELEQuery);
+            pst.setString (1, (String) from.getSelectionModel ( ).getSelectedItem ( ));
+            pst.setString (2, (String) to.getSelectionModel ( ).getSelectedItem ( ));
+            pst.setString (3, fee.getText ( ));
+
+            String MakeTXT = "USE SRO_R_SHARD Select * from _RefTeleLink";
+            
+            Statement stm = conn.createStatement ( );
+            ResultSet rs = stm.executeQuery (MakeTXT);
+            List<String> rows = new ArrayList<> ( );
+            StringBuilder row = new StringBuilder ( );
+            ResultSetMetaData meta = rs.getMetaData ( );
+            final int colCount = meta.getColumnCount ( );
+            while (rs.next ( )) {
+                row.setLength (0);
+                for (int c = 1; c <= colCount; c++) {
+                    row.append (rs.getString (c)).append ("\t");
+                    if (c == colCount) {
+                        row.append (rs.getString (c)).append ("");
+                    }
+                }
+                rows.add (row.toString ( ));
+            }
+            rs.close ( );
+            stm.close ( );
+            PrintWriter pw = new PrintWriter (new FileOutputStream ("teleportlink.txt"));
+            StringBuilder all = new StringBuilder ( );
+            for (String str : rows) {
+                all.append (str + "\n");
+            }
+            pw.print (all);
+            pw.close ( );
+        }
+    }
+
+    @FXML
     private void handleDEL(ActionEvent event) throws SQLException, IOException {
         try (Connection conn = Sql.DbConnector()) {
             String DELQuery = Files.lines(Paths.get("sql/DEL.txt")).collect(Collectors.joining("\n"));

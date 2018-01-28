@@ -58,7 +58,7 @@
                             <children>
                                 <ComboBox fx:id="from" layoutX="274.0" layoutY="175.0" prefWidth="150.0" />
                                 <ComboBox fx:id="to" layoutX="274.0" layoutY="211.0" prefWidth="150.0" />
-                                <Button layoutX="323.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleNPC_MOVE" text="Create!" />
+                                <Button layoutX="323.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleTELE" text="Create!" />
                                 <TextField fx:id="fee" layoutX="275.0" layoutY="247.0" />
                                 <Label layoutX="232.0" layoutY="179.0" text="From:" textFill="#1b0b0b" />
                                 <Label layoutX="247.0" layoutY="215.0" text="To:" />
