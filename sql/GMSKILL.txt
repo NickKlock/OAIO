@@ -1,4 +1,4 @@
-use SRO_VT_SHARD
+use SRO_R_SHARD
 
 declare @id int
 declare @charname varchar(64)

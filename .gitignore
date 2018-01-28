@@ -1,3 +1,12 @@
 /nbproject/private/
 /build/
 /dist/
+\.idea/
+
+OAIO\.iml
+
+out/
+
+src/META-INF/
+
+config\.ini

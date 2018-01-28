@@ -121,7 +121,7 @@ public class Controller implements Initializable {
             pst.setString(3, fee.getText());
             pst.execute();
 
-            String MakeTXT = "USE SRO_VT_SHARD Select * from _RefTeleLink";
+            String MakeTXT = "USE SRO_R_SHARD Select * from _RefTeleLink";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(MakeTXT);
             List<String> rows = new ArrayList<>();
@@ -157,7 +157,7 @@ public class Controller implements Initializable {
     private void handleCHECK(ActionEvent event) throws SQLException, IOException {
         Connection c;
         rates = FXCollections.observableArrayList();
-        try (Connection conn = Sql.DbConnector();) {
+        try (Connection conn = Sql.DbConnector()) {
 
             String SQL = Files.lines(Paths.get("sql/CHECKRATE.txt")).collect(Collectors.joining("\n"));
             ResultSet rs = conn.createStatement().executeQuery(SQL);
@@ -191,7 +191,7 @@ public class Controller implements Initializable {
     private void TELERefresh(ActionEvent event) throws SQLException, IOException {
         try (Connection conn = Sql.DbConnector();) {
 
-            String query = "USE SRO_VT_SHARD Select CodeName128 from _RefTeleport";
+            String query = "USE SRO_R_SHARD Select CodeName128 from _RefTeleport";
             pst = conn.prepareStatement(query);
             rs = pst.executeQuery();
 
@@ -210,7 +210,7 @@ public class Controller implements Initializable {
     private void handleSTUCK(ActionEvent event) throws IOException {
         try (Connection conn = Sql.DbConnector();) {
 
-            String query = "USE SRO_VT_SHARD UPDATE _Char SET LatestRegion=25000,PosX=992,PosY=-32.60888,PosZ=1317 WHERE CharName16=?";
+            String query = "USE SRO_R_SHARD UPDATE _Char SET LatestRegion=25000,PosX=992,PosY=-32.60888,PosZ=1317 WHERE CharName16=?";
             pst = conn.prepareStatement(query);
             pst.setString(1, chartele.getText());
             pst.execute();
