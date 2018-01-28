@@ -1,0 +1,19 @@
+use SRO_R_SHARD;
+DECLARE @CHARNAME VARCHAR (30)
+SET @CHARNAME = (SELECT CharName16 FROM _Char WHERE CharName16 = ?)
+
+DECLARE @objID int set @objID = (select ID from _RefObjCommon where CodeName128 = ? )
+DECLARE @tacticsID int set @tacticsID = (select dwTacticsID from Tab_RefTactics where dwObjID =@objID)
+DECLARE @hiveID int set @hiveID = 1600
+
+DECLARE @REGION VARCHAR (30) SET @REGION = (SELECT LatestRegion FROM _Char WHERE CharName16 = @CHARNAME)
+DECLARE @POSX VARCHAR (30) SET @POSX = (SELECT (POSX) FROM _Char WHERE CharName16 = @CHARNAME)
+DECLARE @POSY VARCHAR (30) SET @POSY = (SELECT (POSY) FROM _Char WHERE CharName16 = @CHARNAME)
+DECLARE @POSZ VARCHAR (30) SET @POSZ = (SELECT (POSZ) FROM _Char WHERE CharName16 = @CHARNAME)
+
+SET IDENTITY_INSERT Tab_RefNest ON  ;
+DECLARE @NESTID INT SET @NESTID = (SELECT MAX (dwNestID) FROM Tab_RefNest)+1
+INSERT INTO Tab_RefNest(dwNestID,dwHiveID,dwTacticsID,nRegionDBID,fLocalPosX,fLocalPosY,fLocalPosZ,wInitialDir,nRadius,nGenerateRadius,nChampionGenPercentage,dwDelayTimeMin,dwDelayTimeMax,dwMaxTotalCount,btFlag,btRespawn,btType)
+VALUES
+(@NESTID,@hiveID,@tacticsID,@REGION,@POSX,@POSY,@POSZ,0,0,0,0,0,0,1,0,1,0)
+SET IDENTITY_INSERT Tab_RefNest OFF;
